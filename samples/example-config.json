@@ -1,0 +1,20 @@
+{
+  "users" :
+    [
+      { "name" : "nbastin",
+        "urn" : "urn:publicid:IDN+ch.geni.net+user+nickbas",
+        "keys" : ["/home/nbastin/.ssh/geni_dsa.pub"]
+      }
+    ],
+  "frameworks" :
+    [
+      { "name" : "portal",
+        "cert" : "/home/nbastin/.ssh/portal-nbastin.pem",
+        "key" : "/home/nbastin/.ssh/portal-nbastin.key",
+      }
+    ]
+  "default_cf" : "portal",
+  "defatul_project" : "bss-sw-test"
+}
+    
+      

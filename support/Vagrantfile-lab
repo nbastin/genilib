@@ -1,0 +1,81 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure(2) do |config|
+  if ENV['glv_port']
+    port = ENV['glv_port'].to_i()
+  else
+    port = 8900
+  end
+
+  if ENV['glv_ram']
+    memory = ENV['glv_ram']
+  else
+    memory = "1024"
+  end
+
+  config.vm.box = "ubuntu/xenial32"
+  config.vm.boot_timeout = 600
+  config.vm.network :forwarded_port, guest: 8888, host: port
+  config.vm.box_check_update = false
+
+  config.vm.provider "virtualbox" do |vb|
+    vb.memory = memory
+  end
+
+  cache = ENV['apt_cache'] || ""
+  pypi_test = !!ENV['pypi_test']
+
+  config.vm.provision "shell", privileged: false, inline: <<-SHELL
+     sudo http_proxy=#{cache} apt-get update
+     sudo http_proxy=#{cache} apt-get install -y --no-install-recommends wget build-essential python2.7 python-dev graphviz libssl1.0.0 python-kerberos git
+     wget -q https://bootstrap.pypa.io/get-pip.py
+     sudo python2.7 get-pip.py
+     sudo pip2 install --upgrade six
+     sudo pip2 install graphviz functools32 "ipython<6.0.0"
+     sudo pip2 install jupyter
+
+     ## Qgrid and ipywidgets
+     sudo pip2 install qgrid ipywidgets
+     jupyter nbextension enable --py qgrid
+     jupyter nbextension enable --py widgetsnbextension
+
+     ## Jupyter nbextensions
+     sudo pip2 install jupyter_contrib_nbextensions
+     sudo jupyter contrib nbextension install
+     jupyter nbextension enable hide_input/main
+     jupyter nbextension enable collapsible_headings/main
+
+     ## geni-lib install
+     if [ #{pypi_test} == "true" ]
+     then
+       sudo pip2 install --index https://test.pypi.org/simple --extra-index https://pypi.org/simple geni-lib
+     else
+       sudo pip2 install geni-lib
+     fi
+
+     ## geni-lib setup
+     if [ -f /vagrant/omni.bundle ]
+        then
+          echo "/vagrant/omni.bundle exists. Configuring geni-lib."
+          PARMS=(--bundle /vagrant/omni.bundle)
+          if [ -f /vagrant/cert.key ]
+             then
+                PARMS+=(--cert-private-key /vagrant/cert.key)
+          fi
+          if [ -f /vagrant/ssh.pubkey ]
+             then
+                PARMS+=(--pubkey /vagrant/ssh.pubkey)
+          fi
+          sudo -u vagrant /usr/local/bin/context-from-bundle "${PARMS[@]}"
+     fi
+     mkdir -p ~/notebooks
+     wget -q "https://bitbucket.org/barnstorm/geni-lib/raw/tip/support/Getting Started.ipynb"
+     mv "Getting Started.ipynb" ~/notebooks/
+     wget -q https://bitbucket.org/barnstorm/geni-lib/raw/tip/support/jupyter-systemd
+     sudo mv jupyter-systemd /lib/systemd/system/jupyter.service
+     sudo systemctl enable jupyter
+     sudo systemctl daemon-reload
+     sudo systemctl restart jupyter.service
+  SHELL
+end

@@ -1,0 +1,12 @@
+respawn
+console none
+start on (local-filesystems and net-device-up IFACE!=lo)
+stop on [!12345]
+
+script
+local_ip=$(/sbin/ip route get 8.8.8.8 | /usr/bin/awk 'NR==1 {print $NF}')
+
+cd /vagrant
+sudo -u vagrant /usr/local/bin/jupyter notebook --no-browser --ip=$local_ip --notebook-dir=/home/vagrant/notebooks --NotebookApp.token=""
+
+end script

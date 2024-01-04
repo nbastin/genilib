@@ -1,0 +1,11 @@
+\.pyc$
+\.swp$
+\.swo$
+\.swn$
+docs/build/
+build/
+dist/
+geni_lib.egg-info/
+\.orig
+lint.out
+__pycache__

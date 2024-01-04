@@ -1,0 +1,40 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure(2) do |config|
+  config.vm.box = "ubuntu/trusty32"
+  config.vm.box_check_update = false
+
+  config.vm.provider "virtualbox" do |vb|
+    vb.memory = "512"
+  end
+
+  config.vm.provision "shell", privileged: false, inline: <<-SHELL
+     sudo apt-get update
+     sudo apt-get install -y --no-install-recommends build-essential mercurial python-lxml python-setuptools libffi-dev python-pip python-dev libssl-dev  libxml2-dev libxslt1-dev zlib1g-dev python-ipaddr python-requests
+     sudo pip install functools32
+
+     ## geni-lib install
+     hg clone http://bitbucket.org/barnstorm/geni-lib
+     cd geni-lib
+     hg update -C 0.9-DEV
+     sudo pip install .
+
+     ## geni-lib setup
+     if [ -f /vagrant/omni.bundle ]
+        then
+          echo "/vagrant/omni.bundle exists. Configuring geni-lib."
+          PARMS=(--bundle /vagrant/omni.bundle)
+          if [ -f /vagrant/cert.key ]
+             then
+                PARMS+=(--cert-private-key /vagrant/cert.key)
+          fi
+          if [ -f /vagrant/ssh.pubkey ]
+             then
+                PARMS+=(--pubkey /vagrant/ssh.pubkey)
+          fi
+          sudo -u vagrant /usr/local/bin/context-from-bundle "${PARMS[@]}"
+     fi
+  SHELL
+
+end

@@ -1,0 +1,202 @@
+
+## Description
+# This example is to configure a topology with two multi-node LANs, this type of topology is considered as 
+# a "custom" type.
+#
+#           2 		         4
+#  	        |                |
+#  1 ---  (lan1) --- 3 --- (lan2) --- 5 --- 6 --- 7 --- 8 
+#
+# It this topology, there are 8 nodes, all belong to "router" node category
+# There are two LANs, (1,2,3) and (3,4,5), defined in [add-lan] section
+
+
+[general]
+# ---- Define Topology Type -------------------
+# ring: ring topology
+# grid: m-by-n grid topology
+# mesh: fully mesh topology
+# random: random topology
+# custom: self defined topology
+# lan: single multi-node LAN topology
+
+topo_type=custom
+
+
+
+# ---- Define Node Category -------------------
+
+node_type=router, host
+
+
+
+# ---- Aggregate Assignment -------------------
+# This is to determine whether the topology is
+# using single aggregate or multiple aggregates
+
+single_am=no
+
+
+
+# ---- Using Stitching ------------------------
+# This is only for crossing aggregates topology
+# If use_stitching is set to yes, then the 
+# links between stitching sites will be stitched,
+# otherwise, all crossing aggregate links will 
+# be EGRE links. 
+
+use_stitching=yes
+
+
+# ---- RSpec File Name ------------------------
+
+output_rspec=custom5-2LAN-4am.xml
+
+
+# -- Configure Topology -----------------------
+
+## Ring Topology
+#[ring]
+#num_nodes=10
+
+## m-by-n Grid Topology
+#[grid]
+#num_row=2
+#num_col=3
+
+## Fully Mesh Topology
+#[mesh]
+#num_nodes=5
+
+## Random Topology
+#[random]
+#num_nodes=5
+# this is the probablilty that a node can have a link to another node
+#edge_prob=0.5
+
+
+## Self defined topology
+[custom]
+# Note: You can add one or more multi-node LANs to your regular topology defined in this section
+# If you need to add LANs, you will have to configure the [add-lan] section
+edges=[(5,6),(6,7),(7,8)]
+
+
+## LAN Topology
+#[lan]
+#num_nodes=10
+
+
+## Add LAN (Optional)
+# This section only needed when you need to add one or more multi-node LANs to your "custom" topology type
+# To define additional LANs to your existing topology, you will need to format each LAN into a tuple of nodes 
+# that are attached to the LAN, and one of the node should be included in your existing topology, so that the 
+# LAN will be attached to your existing topology. 
+# 
+# For example:
+# If your existing topology without LAN is [(1,2),(2,3), (3,1)], and you want to attch a three-node
+# LAN to each node:
+# You will need to define: 
+#							lans = [(1,4,5),(2,6,7),(3,8,9)] 
+# in this [add-lan] section.
+
+[add-lan]
+lans = [(1,2,3),(3,4,5)]
+
+
+
+
+
+# ---- Node Category ---------------------------
+# You will create sections for your own node 
+# categories, each category has four different 
+# fields: 
+# 		node_prefix, disk_image, install_service, execute_command, node_list
+# 		
+#
+# The format of a section for a specific node 
+# category is (assumeing the type is "host"):
+# 
+# [host]
+# client_prefix=<host>
+# disk_image=<url to the image>
+# install_script=<url to the script tarball>, <path to the tarball>
+# execute_cmd=<command>, <shell type>
+# node_list=<a list of node belongs to this node category, i.e., ALL or 1, 2, 3, ...>
+
+[router]
+node_prefix=rt
+disk_image=https://www.instageni.clemson.edu/image_metadata.php?uuid=5417bcef-224e-11e4-aa5a-000000000000
+install_script=http://www.gpolab.bbn.com/exp/sysexpr/xorp_autostart.tar.gz,/local
+ 		http://www.gpolab.bbn.com/exp/sysexpr/xorp_run.tar.gz, /local
+		http://emmy9.casa.umass.edu/GEC-20/gimidev.tar.gz, /
+		http://www.gpolab.bbn.com/exp/sysexpr/labwiki.tar.gz, /local
+		http://www.gpolab.bbn.com/exp/sysexpr/install_script.tar.gz, /local
+execute_cmd=/bin/bash /local/xorp_autostart/start-xorp.sh, sh
+		    /bin/bash /local/install_script/initial_install.sh, sh
+		    sudo sh /gimidev/gimibot.sh, sh
+node_list=3,5,6,7,8
+
+
+[host]
+node_prefix=host
+disk_image=https://www.instageni.clemson.edu/image_metadata.php?uuid=5417bcef-224e-11e4-aa5a-000000000000
+install_script=http://www.gpolab.bbn.com/exp/sysexpr/xorp_autostart.tar.gz,/local
+execute_cmd=/bin/bash /local/xorp_autostart/start-xorp.sh, sh
+node_list=1,2,4
+
+
+# ---- Assign Aggregaets ------------------------
+# This section is only for multi-aggregate purpose
+# 
+# Here is a list of available InstaGENI Aggregates (sites)
+# Stitching Sites can be found at http://groups.geni.net/geni/wiki/GeniNetworkStitchingSites 
+#
+# You may need to enter the name of the InstaGENI site when a bounded RSpec is to be created.
+#
+#
+# =========================
+# 0:	ig-gpo
+# 1:	ig-nysernet
+# 2:	ig-illinois
+# 3:	ig-max
+# 4:	ig-missouri
+# 5:	ig-utah
+# 6:	ig-wisconsin
+# 7:	ig-stanford
+# 8:	ig-utahddc
+# 9:	ig-kentucky
+# 10:	ig-clemson
+# 11:	ig-cornell
+# 12:	ig-gatech
+# 13:	ig-kansas
+# 14:	ig-northwestern
+# 15:	ig-nyu
+# 16:	ig-rutgers
+# 17:	ig-princeton
+# 18:	ig-ohmetrodc
+# 19:	ig-cwru
+# 20:	ig-moxi
+# 21:	ig-sox
+# 22:	ig-nps
+# 23:	ig-kettering
+# 24:	ig-lsu
+# ==========================
+#
+# The syntax is <am_index>=<a list of noes>
+# For example: 
+# ig-gpo = 0, 1, 2 means that node 0,1,2 are all from ig-gpo
+
+[am_nodes]
+# If single_am = yes, and you would like to have unbounded RSpec
+#any=ALL
+
+# If single_am = yes, and you would like to select one of the aggregate from the list, i.e. select ig-gpo, 
+# then, you enter 0=ALL
+#ig-gpo=ALL
+
+# If single_am = no
+ig-nysernet = 1,2,3,4,5
+ig-illinois = 6
+ig-kansas = 7
+ig-stanford = 8

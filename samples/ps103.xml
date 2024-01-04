@@ -1,0 +1,36 @@
+<rspec xmlns:rs="http://www.protogeni.net/resources/rspec/ext/emulab/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:sharedvlan="http://www.geni.net/resources/rspec/ext/shared-vlan/1" xmlns:client="http://www.protogeni.net/resources/rspec/ext/client/1" xmlns="http://www.geni.net/resource/rspec/3" xsi:schemaLocation="http://www.geni.net/resource/rspec/3 http://www.geni.net/resources/rspec/3/request.xsd http://www.geni.net/resources/rspec/ext/shared-vlan/1 http://www.geni.net/resources/rspec/ext/shared-vlan/1/request.xsd" type="request">
+  <node client_id="bbn-ig-ps103-a" exclusive="false">
+    <sliver_type name="emulab-xen">
+      <disk_image name="urn:publicid:IDN+instageni.gpolab.bbn.com+image+emulab-ops:UBUNTU12-64-STD"/>
+    </sliver_type>
+    <interface client_id="bbn-ig-ps103-a:if0">
+      <ip address="10.42.103.111" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <services>
+      <install url="http://www.gpolab.bbn.com/~jbs/dingbot-jbs.tar.gz" install_path="/opt"/>
+      <install url="http://www.gpolab.bbn.com/~jbs/dingbot.tar.gz" install_path="/opt"/>
+      <execute shell="/bin/bash" command="sudo /opt/dingbot/dingbot /opt/dingbot/dingbot-jbs.json bbn-ig-ps103-a"/>
+    </services>
+  </node>
+  <link client_id="7f45c797-ae52-4c32-bb75-4631693e5fa3">
+    <interface_ref client_id="bbn-ig-ps103-a:if0"/>
+    <sharedvlan:link_shared_vlan name="mesoscale-openflow"/>
+  </link>
+  <node client_id="bbn-ig-ps103-b" exclusive="false">
+    <sliver_type name="emulab-xen">
+      <disk_image name="urn:publicid:IDN+instageni.gpolab.bbn.com+image+emulab-ops:UBUNTU12-64-STD"/>
+    </sliver_type>
+    <interface client_id="bbn-ig-ps103-b:if0">
+      <ip address="10.42.103.112" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <services>
+      <install url="http://www.gpolab.bbn.com/~jbs/dingbot-jbs.tar.gz" install_path="/opt"/>
+      <install url="http://www.gpolab.bbn.com/~jbs/dingbot.tar.gz" install_path="/opt"/>
+      <execute shell="/bin/bash" command="sudo /opt/dingbot/dingbot /opt/dingbot/dingbot-jbs.json bbn-ig-ps103-b"/>
+    </services>
+  </node>
+  <link client_id="544caf42-ffc8-4594-840a-3c1afef98f5f">
+    <interface_ref client_id="bbn-ig-ps103-b:if0"/>
+    <sharedvlan:link_shared_vlan name="mesoscale-openflow"/>
+  </link>
+</rspec>

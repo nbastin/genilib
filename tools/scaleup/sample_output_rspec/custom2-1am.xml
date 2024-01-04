@@ -1,0 +1,129 @@
+<rspec xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:client="http://www.protogeni.net/resources/rspec/ext/client/1" xmlns="http://www.geni.net/resources/rspec/3" xsi:schemaLocation="http://www.geni.net/resources/rspec/3 http://www.geni.net/resources/rspec/3/request.xsd" type="request">
+  <node client_id="rt-1" exclusive="false">
+    <sliver_type name="emulab-xen">
+      <disk_image name="https://www.instageni.clemson.edu/image_metadata.php?uuid=5417bcef-224e-11e4-aa5a-000000000000"/>
+      <ns0:xen xmlns:ns0="http://www.protogeni.net/resources/rspec/ext/emulab/1" cores="1" ram="256" disk="8"/>
+    </sliver_type>
+    <interface client_id="rt-1:if1">
+      <ip address="192.168.1.1" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-1:if2">
+      <ip address="192.168.2.1" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-1:if3">
+      <ip address="192.168.3.1" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <services>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_autostart.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_run.tar.gz" install_path="/local"/>
+      <install url="http://emmy9.casa.umass.edu/GEC-20/gimidev.tar.gz" install_path="/"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/labwiki.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/install_script.tar.gz" install_path="/local"/>
+      <execute shell="sh" command="/bin/bash /local/xorp_autostart/start-xorp.sh"/>
+      <execute shell="sh" command="/bin/bash /local/install_script/initial_install.sh"/>
+      <execute shell="sh" command="sudo sh /gimidev/gimibot.sh"/>
+    </services>
+  </node>
+  <node client_id="rt-2" exclusive="false">
+    <sliver_type name="emulab-xen">
+      <disk_image name="https://www.instageni.clemson.edu/image_metadata.php?uuid=5417bcef-224e-11e4-aa5a-000000000000"/>
+      <ns1:xen xmlns:ns1="http://www.protogeni.net/resources/rspec/ext/emulab/1" cores="1" ram="256" disk="8"/>
+    </sliver_type>
+    <interface client_id="rt-2:if1">
+      <ip address="192.168.1.2" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-2:if2">
+      <ip address="192.168.4.1" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-2:if3">
+      <ip address="192.168.5.1" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <services>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_autostart.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_run.tar.gz" install_path="/local"/>
+      <install url="http://emmy9.casa.umass.edu/GEC-20/gimidev.tar.gz" install_path="/"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/labwiki.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/install_script.tar.gz" install_path="/local"/>
+      <execute shell="sh" command="/bin/bash /local/xorp_autostart/start-xorp.sh"/>
+      <execute shell="sh" command="/bin/bash /local/install_script/initial_install.sh"/>
+      <execute shell="sh" command="sudo sh /gimidev/gimibot.sh"/>
+    </services>
+  </node>
+  <node client_id="rt-3" exclusive="false">
+    <sliver_type name="emulab-xen">
+      <disk_image name="https://www.instageni.clemson.edu/image_metadata.php?uuid=5417bcef-224e-11e4-aa5a-000000000000"/>
+      <ns2:xen xmlns:ns2="http://www.protogeni.net/resources/rspec/ext/emulab/1" cores="1" ram="256" disk="8"/>
+    </sliver_type>
+    <interface client_id="rt-3:if1">
+      <ip address="192.168.2.2" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-3:if2">
+      <ip address="192.168.4.2" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <services>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_autostart.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_run.tar.gz" install_path="/local"/>
+      <install url="http://emmy9.casa.umass.edu/GEC-20/gimidev.tar.gz" install_path="/"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/labwiki.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/install_script.tar.gz" install_path="/local"/>
+      <execute shell="sh" command="/bin/bash /local/xorp_autostart/start-xorp.sh"/>
+      <execute shell="sh" command="/bin/bash /local/install_script/initial_install.sh"/>
+      <execute shell="sh" command="sudo sh /gimidev/gimibot.sh"/>
+    </services>
+  </node>
+  <node client_id="host-1" exclusive="false">
+    <sliver_type name="emulab-xen">
+      <disk_image name="https://www.instageni.illinois.edu/image_metadata.php?uuid=87d670da-225c-11e4-9607-000000000000"/>
+      <ns3:xen xmlns:ns3="http://www.protogeni.net/resources/rspec/ext/emulab/1" cores="1" ram="256" disk="8"/>
+    </sliver_type>
+    <interface client_id="host-1:if1">
+      <ip address="192.168.3.2" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <services>
+      <install url="http://emmy9.casa.umass.edu/GEC-20/gimidev.tar.gz" install_path="/"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/install_script.tar.gz" install_path="/local"/>
+      <execute shell="sh" command="/bin/bash /local/install_script/initial_install.sh"/>
+      <execute shell="sh" command="sudo sh /gimidev/gimibot.sh"/>
+    </services>
+  </node>
+  <node client_id="host-2" exclusive="false">
+    <sliver_type name="emulab-xen">
+      <disk_image name="https://www.instageni.illinois.edu/image_metadata.php?uuid=87d670da-225c-11e4-9607-000000000000"/>
+      <ns4:xen xmlns:ns4="http://www.protogeni.net/resources/rspec/ext/emulab/1" cores="1" ram="256" disk="8"/>
+    </sliver_type>
+    <interface client_id="host-2:if1">
+      <ip address="192.168.5.2" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <services>
+      <install url="http://emmy9.casa.umass.edu/GEC-20/gimidev.tar.gz" install_path="/"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/install_script.tar.gz" install_path="/local"/>
+      <execute shell="sh" command="/bin/bash /local/install_script/initial_install.sh"/>
+      <execute shell="sh" command="sudo sh /gimidev/gimibot.sh"/>
+    </services>
+  </node>
+  <link client_id="lan0">
+    <interface_ref client_id="rt-1:if1"/>
+    <interface_ref client_id="rt-2:if1"/>
+    <link_type name="lan"/>
+  </link>
+  <link client_id="lan1">
+    <interface_ref client_id="rt-1:if2"/>
+    <interface_ref client_id="rt-3:if1"/>
+    <link_type name="lan"/>
+  </link>
+  <link client_id="lan2">
+    <interface_ref client_id="rt-1:if3"/>
+    <interface_ref client_id="host-1:if1"/>
+    <link_type name="lan"/>
+  </link>
+  <link client_id="lan3">
+    <interface_ref client_id="rt-2:if2"/>
+    <interface_ref client_id="rt-3:if2"/>
+    <link_type name="lan"/>
+  </link>
+  <link client_id="lan4">
+    <interface_ref client_id="rt-2:if3"/>
+    <interface_ref client_id="host-2:if1"/>
+    <link_type name="lan"/>
+  </link>
+</rspec>

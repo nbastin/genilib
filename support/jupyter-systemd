@@ -1,0 +1,16 @@
+# Full on stupidity, because of systemd suckness
+
+[Unit]
+Description=Jupyter Notebook
+
+[Service]
+Type=simple
+PIDFile=/run/jupyter.pid
+ExecStart=/usr/local/bin/jupyter notebook --no-browser --ip=0.0.0.0 --notebook-dir=/home/vagrant/notebooks --NotebookApp.token=""
+User=vagrant
+WorkingDirectory=/home/vagrant
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

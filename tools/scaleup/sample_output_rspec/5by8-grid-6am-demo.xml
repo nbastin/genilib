@@ -1,0 +1,1377 @@
+<rspec xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:client="http://www.protogeni.net/resources/rspec/ext/client/1" xmlns="http://www.geni.net/resources/rspec/3" xsi:schemaLocation="http://www.geni.net/resources/rspec/3 http://www.geni.net/resources/rspec/3/request.xsd" type="request">
+  <node client_id="host-1" exclusive="false" component_manager_id="urn:publicid:IDN+instageni.gpolab.bbn.com+authority+cm">
+    <sliver_type name="emulab-xen">
+      <disk_image name="https://www.instageni.clemson.edu/image_metadata.php?uuid=5417bcef-224e-11e4-aa5a-000000000000"/>
+      <ns0:xen xmlns:ns0="http://www.protogeni.net/resources/rspec/ext/emulab/1" cores="1" ram="256" disk="8"/>
+    </sliver_type>
+    <interface client_id="host-1:if1">
+      <ip address="192.168.1.1" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="host-1:if2">
+      <ip address="192.168.2.1" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <services>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_run.tar.gz" install_path="/local"/>
+      <install url="http://emmy9.casa.umass.edu/GEC-20/gimidev.tar.gz" install_path="/"/>
+      <execute shell="sh" command="sudo sh /gimidev/gimibot.sh"/>
+    </services>
+  </node>
+  <node client_id="rt-1" exclusive="false" component_manager_id="urn:publicid:IDN+instageni.gpolab.bbn.com+authority+cm">
+    <sliver_type name="emulab-xen">
+      <disk_image name="https://www.instageni.clemson.edu/image_metadata.php?uuid=5417bcef-224e-11e4-aa5a-000000000000"/>
+      <ns1:xen xmlns:ns1="http://www.protogeni.net/resources/rspec/ext/emulab/1" cores="1" ram="256" disk="8"/>
+    </sliver_type>
+    <interface client_id="rt-1:if1">
+      <ip address="192.168.2.2" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-1:if2">
+      <ip address="192.168.3.1" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-1:if3">
+      <ip address="192.168.4.1" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <services>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_autostart.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_run.tar.gz" install_path="/local"/>
+      <install url="http://emmy9.casa.umass.edu/GEC-20/gimidev.tar.gz" install_path="/"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/labwiki.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/install_script.tar.gz" install_path="/local"/>
+      <execute shell="sh" command="/bin/bash /local/xorp_autostart/start-xorp.sh"/>
+      <execute shell="sh" command="/bin/bash /local/install_script/initial_install.sh"/>
+      <execute shell="sh" command="sudo sh /gimidev/gimibot.sh"/>
+    </services>
+  </node>
+  <node client_id="rt-2" exclusive="false" component_manager_id="urn:publicid:IDN+instageni.gpolab.bbn.com+authority+cm">
+    <sliver_type name="emulab-xen">
+      <disk_image name="https://www.instageni.clemson.edu/image_metadata.php?uuid=5417bcef-224e-11e4-aa5a-000000000000"/>
+      <ns2:xen xmlns:ns2="http://www.protogeni.net/resources/rspec/ext/emulab/1" cores="1" ram="256" disk="8"/>
+    </sliver_type>
+    <interface client_id="rt-2:if1">
+      <ip address="192.168.4.2" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-2:if2">
+      <ip address="192.168.5.1" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-2:if3">
+      <ip address="192.168.6.1" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <services>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_autostart.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_run.tar.gz" install_path="/local"/>
+      <install url="http://emmy9.casa.umass.edu/GEC-20/gimidev.tar.gz" install_path="/"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/labwiki.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/install_script.tar.gz" install_path="/local"/>
+      <execute shell="sh" command="/bin/bash /local/xorp_autostart/start-xorp.sh"/>
+      <execute shell="sh" command="/bin/bash /local/install_script/initial_install.sh"/>
+      <execute shell="sh" command="sudo sh /gimidev/gimibot.sh"/>
+    </services>
+  </node>
+  <node client_id="rt-7" exclusive="false" component_manager_id="urn:publicid:IDN+instageni.gpolab.bbn.com+authority+cm">
+    <sliver_type name="emulab-xen">
+      <disk_image name="https://www.instageni.clemson.edu/image_metadata.php?uuid=5417bcef-224e-11e4-aa5a-000000000000"/>
+      <ns3:xen xmlns:ns3="http://www.protogeni.net/resources/rspec/ext/emulab/1" cores="1" ram="256" disk="8"/>
+    </sliver_type>
+    <interface client_id="rt-7:if1">
+      <ip address="192.168.1.2" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-7:if2">
+      <ip address="192.168.16.1" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-7:if3">
+      <ip address="192.168.17.1" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <services>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_autostart.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_run.tar.gz" install_path="/local"/>
+      <install url="http://emmy9.casa.umass.edu/GEC-20/gimidev.tar.gz" install_path="/"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/labwiki.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/install_script.tar.gz" install_path="/local"/>
+      <execute shell="sh" command="/bin/bash /local/xorp_autostart/start-xorp.sh"/>
+      <execute shell="sh" command="/bin/bash /local/install_script/initial_install.sh"/>
+      <execute shell="sh" command="sudo sh /gimidev/gimibot.sh"/>
+    </services>
+  </node>
+  <node client_id="rt-8" exclusive="false" component_manager_id="urn:publicid:IDN+instageni.gpolab.bbn.com+authority+cm">
+    <sliver_type name="emulab-xen">
+      <disk_image name="https://www.instageni.clemson.edu/image_metadata.php?uuid=5417bcef-224e-11e4-aa5a-000000000000"/>
+      <ns4:xen xmlns:ns4="http://www.protogeni.net/resources/rspec/ext/emulab/1" cores="1" ram="256" disk="8"/>
+    </sliver_type>
+    <interface client_id="rt-8:if1">
+      <ip address="192.168.3.2" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-8:if2">
+      <ip address="192.168.17.2" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-8:if3">
+      <ip address="192.168.18.1" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-8:if4">
+      <ip address="192.168.19.1" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <services>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_autostart.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_run.tar.gz" install_path="/local"/>
+      <install url="http://emmy9.casa.umass.edu/GEC-20/gimidev.tar.gz" install_path="/"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/labwiki.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/install_script.tar.gz" install_path="/local"/>
+      <execute shell="sh" command="/bin/bash /local/xorp_autostart/start-xorp.sh"/>
+      <execute shell="sh" command="/bin/bash /local/install_script/initial_install.sh"/>
+      <execute shell="sh" command="sudo sh /gimidev/gimibot.sh"/>
+    </services>
+  </node>
+  <node client_id="rt-9" exclusive="false" component_manager_id="urn:publicid:IDN+instageni.gpolab.bbn.com+authority+cm">
+    <sliver_type name="emulab-xen">
+      <disk_image name="https://www.instageni.clemson.edu/image_metadata.php?uuid=5417bcef-224e-11e4-aa5a-000000000000"/>
+      <ns5:xen xmlns:ns5="http://www.protogeni.net/resources/rspec/ext/emulab/1" cores="1" ram="256" disk="8"/>
+    </sliver_type>
+    <interface client_id="rt-9:if1">
+      <ip address="192.168.5.2" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-9:if2">
+      <ip address="192.168.18.2" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-9:if3">
+      <ip address="192.168.20.1" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-9:if4">
+      <ip address="192.168.21.1" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <services>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_autostart.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_run.tar.gz" install_path="/local"/>
+      <install url="http://emmy9.casa.umass.edu/GEC-20/gimidev.tar.gz" install_path="/"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/labwiki.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/install_script.tar.gz" install_path="/local"/>
+      <execute shell="sh" command="/bin/bash /local/xorp_autostart/start-xorp.sh"/>
+      <execute shell="sh" command="/bin/bash /local/install_script/initial_install.sh"/>
+      <execute shell="sh" command="sudo sh /gimidev/gimibot.sh"/>
+    </services>
+  </node>
+  <node client_id="rt-15" exclusive="false" component_manager_id="urn:publicid:IDN+instageni.illinois.edu+authority+cm">
+    <sliver_type name="emulab-xen">
+      <disk_image name="https://www.instageni.clemson.edu/image_metadata.php?uuid=5417bcef-224e-11e4-aa5a-000000000000"/>
+      <ns6:xen xmlns:ns6="http://www.protogeni.net/resources/rspec/ext/emulab/1" cores="1" ram="256" disk="8"/>
+    </sliver_type>
+    <interface client_id="rt-15:if1">
+      <ip address="192.168.16.2" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-15:if2">
+      <ip address="192.168.31.1" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-15:if3">
+      <ip address="192.168.32.1" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <services>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_autostart.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_run.tar.gz" install_path="/local"/>
+      <install url="http://emmy9.casa.umass.edu/GEC-20/gimidev.tar.gz" install_path="/"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/labwiki.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/install_script.tar.gz" install_path="/local"/>
+      <execute shell="sh" command="/bin/bash /local/xorp_autostart/start-xorp.sh"/>
+      <execute shell="sh" command="/bin/bash /local/install_script/initial_install.sh"/>
+      <execute shell="sh" command="sudo sh /gimidev/gimibot.sh"/>
+    </services>
+  </node>
+  <node client_id="rt-16" exclusive="false" component_manager_id="urn:publicid:IDN+instageni.illinois.edu+authority+cm">
+    <sliver_type name="emulab-xen">
+      <disk_image name="https://www.instageni.clemson.edu/image_metadata.php?uuid=5417bcef-224e-11e4-aa5a-000000000000"/>
+      <ns7:xen xmlns:ns7="http://www.protogeni.net/resources/rspec/ext/emulab/1" cores="1" ram="256" disk="8"/>
+    </sliver_type>
+    <interface client_id="rt-16:if1">
+      <ip address="192.168.19.2" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-16:if2">
+      <ip address="192.168.32.2" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-16:if3">
+      <ip address="192.168.33.1" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-16:if4">
+      <ip address="192.168.34.1" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <services>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_autostart.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_run.tar.gz" install_path="/local"/>
+      <install url="http://emmy9.casa.umass.edu/GEC-20/gimidev.tar.gz" install_path="/"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/labwiki.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/install_script.tar.gz" install_path="/local"/>
+      <execute shell="sh" command="/bin/bash /local/xorp_autostart/start-xorp.sh"/>
+      <execute shell="sh" command="/bin/bash /local/install_script/initial_install.sh"/>
+      <execute shell="sh" command="sudo sh /gimidev/gimibot.sh"/>
+    </services>
+  </node>
+  <node client_id="rt-17" exclusive="false" component_manager_id="urn:publicid:IDN+instageni.illinois.edu+authority+cm">
+    <sliver_type name="emulab-xen">
+      <disk_image name="https://www.instageni.clemson.edu/image_metadata.php?uuid=5417bcef-224e-11e4-aa5a-000000000000"/>
+      <ns8:xen xmlns:ns8="http://www.protogeni.net/resources/rspec/ext/emulab/1" cores="1" ram="256" disk="8"/>
+    </sliver_type>
+    <interface client_id="rt-17:if1">
+      <ip address="192.168.20.2" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-17:if2">
+      <ip address="192.168.33.2" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-17:if3">
+      <ip address="192.168.35.1" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-17:if4">
+      <ip address="192.168.36.1" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <services>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_autostart.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_run.tar.gz" install_path="/local"/>
+      <install url="http://emmy9.casa.umass.edu/GEC-20/gimidev.tar.gz" install_path="/"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/labwiki.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/install_script.tar.gz" install_path="/local"/>
+      <execute shell="sh" command="/bin/bash /local/xorp_autostart/start-xorp.sh"/>
+      <execute shell="sh" command="/bin/bash /local/install_script/initial_install.sh"/>
+      <execute shell="sh" command="sudo sh /gimidev/gimibot.sh"/>
+    </services>
+  </node>
+  <node client_id="rt-23" exclusive="false" component_manager_id="urn:publicid:IDN+instageni.illinois.edu+authority+cm">
+    <sliver_type name="emulab-xen">
+      <disk_image name="https://www.instageni.clemson.edu/image_metadata.php?uuid=5417bcef-224e-11e4-aa5a-000000000000"/>
+      <ns9:xen xmlns:ns9="http://www.protogeni.net/resources/rspec/ext/emulab/1" cores="1" ram="256" disk="8"/>
+    </sliver_type>
+    <interface client_id="rt-23:if1">
+      <ip address="192.168.31.2" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-23:if2">
+      <ip address="192.168.46.1" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-23:if3">
+      <ip address="192.168.47.1" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <services>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_autostart.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_run.tar.gz" install_path="/local"/>
+      <install url="http://emmy9.casa.umass.edu/GEC-20/gimidev.tar.gz" install_path="/"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/labwiki.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/install_script.tar.gz" install_path="/local"/>
+      <execute shell="sh" command="/bin/bash /local/xorp_autostart/start-xorp.sh"/>
+      <execute shell="sh" command="/bin/bash /local/install_script/initial_install.sh"/>
+      <execute shell="sh" command="sudo sh /gimidev/gimibot.sh"/>
+    </services>
+  </node>
+  <node client_id="rt-24" exclusive="false" component_manager_id="urn:publicid:IDN+instageni.illinois.edu+authority+cm">
+    <sliver_type name="emulab-xen">
+      <disk_image name="https://www.instageni.clemson.edu/image_metadata.php?uuid=5417bcef-224e-11e4-aa5a-000000000000"/>
+      <ns10:xen xmlns:ns10="http://www.protogeni.net/resources/rspec/ext/emulab/1" cores="1" ram="256" disk="8"/>
+    </sliver_type>
+    <interface client_id="rt-24:if1">
+      <ip address="192.168.34.2" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-24:if2">
+      <ip address="192.168.46.2" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-24:if3">
+      <ip address="192.168.48.1" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-24:if4">
+      <ip address="192.168.49.1" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <services>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_autostart.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_run.tar.gz" install_path="/local"/>
+      <install url="http://emmy9.casa.umass.edu/GEC-20/gimidev.tar.gz" install_path="/"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/labwiki.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/install_script.tar.gz" install_path="/local"/>
+      <execute shell="sh" command="/bin/bash /local/xorp_autostart/start-xorp.sh"/>
+      <execute shell="sh" command="/bin/bash /local/install_script/initial_install.sh"/>
+      <execute shell="sh" command="sudo sh /gimidev/gimibot.sh"/>
+    </services>
+  </node>
+  <node client_id="rt-25" exclusive="false" component_manager_id="urn:publicid:IDN+instageni.illinois.edu+authority+cm">
+    <sliver_type name="emulab-xen">
+      <disk_image name="https://www.instageni.clemson.edu/image_metadata.php?uuid=5417bcef-224e-11e4-aa5a-000000000000"/>
+      <ns11:xen xmlns:ns11="http://www.protogeni.net/resources/rspec/ext/emulab/1" cores="1" ram="256" disk="8"/>
+    </sliver_type>
+    <interface client_id="rt-25:if1">
+      <ip address="192.168.35.2" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-25:if2">
+      <ip address="192.168.49.2" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-25:if3">
+      <ip address="192.168.50.1" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-25:if4">
+      <ip address="192.168.51.1" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <services>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_autostart.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_run.tar.gz" install_path="/local"/>
+      <install url="http://emmy9.casa.umass.edu/GEC-20/gimidev.tar.gz" install_path="/"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/labwiki.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/install_script.tar.gz" install_path="/local"/>
+      <execute shell="sh" command="/bin/bash /local/xorp_autostart/start-xorp.sh"/>
+      <execute shell="sh" command="/bin/bash /local/install_script/initial_install.sh"/>
+      <execute shell="sh" command="sudo sh /gimidev/gimibot.sh"/>
+    </services>
+  </node>
+  <node client_id="host-3" exclusive="false" component_manager_id="urn:publicid:IDN+instageni.illinois.edu+authority+cm">
+    <sliver_type name="emulab-xen">
+      <disk_image name="https://www.instageni.clemson.edu/image_metadata.php?uuid=5417bcef-224e-11e4-aa5a-000000000000"/>
+      <ns12:xen xmlns:ns12="http://www.protogeni.net/resources/rspec/ext/emulab/1" cores="1" ram="256" disk="8"/>
+    </sliver_type>
+    <interface client_id="host-3:if1">
+      <ip address="192.168.47.2" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="host-3:if2">
+      <ip address="192.168.61.1" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <services>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_run.tar.gz" install_path="/local"/>
+      <install url="http://emmy9.casa.umass.edu/GEC-20/gimidev.tar.gz" install_path="/"/>
+      <execute shell="sh" command="sudo sh /gimidev/gimibot.sh"/>
+    </services>
+  </node>
+  <node client_id="rt-31" exclusive="false" component_manager_id="urn:publicid:IDN+instageni.illinois.edu+authority+cm">
+    <sliver_type name="emulab-xen">
+      <disk_image name="https://www.instageni.clemson.edu/image_metadata.php?uuid=5417bcef-224e-11e4-aa5a-000000000000"/>
+      <ns13:xen xmlns:ns13="http://www.protogeni.net/resources/rspec/ext/emulab/1" cores="1" ram="256" disk="8"/>
+    </sliver_type>
+    <interface client_id="rt-31:if1">
+      <ip address="192.168.48.2" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-31:if2">
+      <ip address="192.168.61.2" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-31:if3">
+      <ip address="192.168.62.1" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <services>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_autostart.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_run.tar.gz" install_path="/local"/>
+      <install url="http://emmy9.casa.umass.edu/GEC-20/gimidev.tar.gz" install_path="/"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/labwiki.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/install_script.tar.gz" install_path="/local"/>
+      <execute shell="sh" command="/bin/bash /local/xorp_autostart/start-xorp.sh"/>
+      <execute shell="sh" command="/bin/bash /local/install_script/initial_install.sh"/>
+      <execute shell="sh" command="sudo sh /gimidev/gimibot.sh"/>
+    </services>
+  </node>
+  <node client_id="rt-32" exclusive="false" component_manager_id="urn:publicid:IDN+instageni.illinois.edu+authority+cm">
+    <sliver_type name="emulab-xen">
+      <disk_image name="https://www.instageni.clemson.edu/image_metadata.php?uuid=5417bcef-224e-11e4-aa5a-000000000000"/>
+      <ns14:xen xmlns:ns14="http://www.protogeni.net/resources/rspec/ext/emulab/1" cores="1" ram="256" disk="8"/>
+    </sliver_type>
+    <interface client_id="rt-32:if1">
+      <ip address="192.168.50.2" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-32:if2">
+      <ip address="192.168.62.2" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-32:if3">
+      <ip address="192.168.63.1" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <services>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_autostart.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_run.tar.gz" install_path="/local"/>
+      <install url="http://emmy9.casa.umass.edu/GEC-20/gimidev.tar.gz" install_path="/"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/labwiki.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/install_script.tar.gz" install_path="/local"/>
+      <execute shell="sh" command="/bin/bash /local/xorp_autostart/start-xorp.sh"/>
+      <execute shell="sh" command="/bin/bash /local/install_script/initial_install.sh"/>
+      <execute shell="sh" command="sudo sh /gimidev/gimibot.sh"/>
+    </services>
+  </node>
+  <node client_id="rt-3" exclusive="false" component_manager_id="urn:publicid:IDN+instageni.stanford.edu+authority+cm">
+    <sliver_type name="emulab-xen">
+      <disk_image name="https://www.instageni.clemson.edu/image_metadata.php?uuid=5417bcef-224e-11e4-aa5a-000000000000"/>
+      <ns15:xen xmlns:ns15="http://www.protogeni.net/resources/rspec/ext/emulab/1" cores="1" ram="256" disk="8"/>
+    </sliver_type>
+    <interface client_id="rt-3:if1">
+      <ip address="192.168.6.2" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-3:if2">
+      <ip address="192.168.7.1" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-3:if3">
+      <ip address="192.168.8.1" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <services>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_autostart.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_run.tar.gz" install_path="/local"/>
+      <install url="http://emmy9.casa.umass.edu/GEC-20/gimidev.tar.gz" install_path="/"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/labwiki.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/install_script.tar.gz" install_path="/local"/>
+      <execute shell="sh" command="/bin/bash /local/xorp_autostart/start-xorp.sh"/>
+      <execute shell="sh" command="/bin/bash /local/install_script/initial_install.sh"/>
+      <execute shell="sh" command="sudo sh /gimidev/gimibot.sh"/>
+    </services>
+  </node>
+  <node client_id="rt-4" exclusive="false" component_manager_id="urn:publicid:IDN+instageni.stanford.edu+authority+cm">
+    <sliver_type name="emulab-xen">
+      <disk_image name="https://www.instageni.clemson.edu/image_metadata.php?uuid=5417bcef-224e-11e4-aa5a-000000000000"/>
+      <ns16:xen xmlns:ns16="http://www.protogeni.net/resources/rspec/ext/emulab/1" cores="1" ram="256" disk="8"/>
+    </sliver_type>
+    <interface client_id="rt-4:if1">
+      <ip address="192.168.8.2" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-4:if2">
+      <ip address="192.168.9.1" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-4:if3">
+      <ip address="192.168.10.1" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <services>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_autostart.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_run.tar.gz" install_path="/local"/>
+      <install url="http://emmy9.casa.umass.edu/GEC-20/gimidev.tar.gz" install_path="/"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/labwiki.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/install_script.tar.gz" install_path="/local"/>
+      <execute shell="sh" command="/bin/bash /local/xorp_autostart/start-xorp.sh"/>
+      <execute shell="sh" command="/bin/bash /local/install_script/initial_install.sh"/>
+      <execute shell="sh" command="sudo sh /gimidev/gimibot.sh"/>
+    </services>
+  </node>
+  <node client_id="rt-5" exclusive="false" component_manager_id="urn:publicid:IDN+instageni.stanford.edu+authority+cm">
+    <sliver_type name="emulab-xen">
+      <disk_image name="https://www.instageni.clemson.edu/image_metadata.php?uuid=5417bcef-224e-11e4-aa5a-000000000000"/>
+      <ns17:xen xmlns:ns17="http://www.protogeni.net/resources/rspec/ext/emulab/1" cores="1" ram="256" disk="8"/>
+    </sliver_type>
+    <interface client_id="rt-5:if1">
+      <ip address="192.168.10.2" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-5:if2">
+      <ip address="192.168.11.1" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-5:if3">
+      <ip address="192.168.12.1" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <services>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_autostart.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_run.tar.gz" install_path="/local"/>
+      <install url="http://emmy9.casa.umass.edu/GEC-20/gimidev.tar.gz" install_path="/"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/labwiki.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/install_script.tar.gz" install_path="/local"/>
+      <execute shell="sh" command="/bin/bash /local/xorp_autostart/start-xorp.sh"/>
+      <execute shell="sh" command="/bin/bash /local/install_script/initial_install.sh"/>
+      <execute shell="sh" command="sudo sh /gimidev/gimibot.sh"/>
+    </services>
+  </node>
+  <node client_id="rt-10" exclusive="false" component_manager_id="urn:publicid:IDN+instageni.stanford.edu+authority+cm">
+    <sliver_type name="emulab-xen">
+      <disk_image name="https://www.instageni.clemson.edu/image_metadata.php?uuid=5417bcef-224e-11e4-aa5a-000000000000"/>
+      <ns18:xen xmlns:ns18="http://www.protogeni.net/resources/rspec/ext/emulab/1" cores="1" ram="256" disk="8"/>
+    </sliver_type>
+    <interface client_id="rt-10:if1">
+      <ip address="192.168.7.2" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-10:if2">
+      <ip address="192.168.21.2" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-10:if3">
+      <ip address="192.168.22.1" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-10:if4">
+      <ip address="192.168.23.1" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <services>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_autostart.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_run.tar.gz" install_path="/local"/>
+      <install url="http://emmy9.casa.umass.edu/GEC-20/gimidev.tar.gz" install_path="/"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/labwiki.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/install_script.tar.gz" install_path="/local"/>
+      <execute shell="sh" command="/bin/bash /local/xorp_autostart/start-xorp.sh"/>
+      <execute shell="sh" command="/bin/bash /local/install_script/initial_install.sh"/>
+      <execute shell="sh" command="sudo sh /gimidev/gimibot.sh"/>
+    </services>
+  </node>
+  <node client_id="rt-11" exclusive="false" component_manager_id="urn:publicid:IDN+instageni.stanford.edu+authority+cm">
+    <sliver_type name="emulab-xen">
+      <disk_image name="https://www.instageni.clemson.edu/image_metadata.php?uuid=5417bcef-224e-11e4-aa5a-000000000000"/>
+      <ns19:xen xmlns:ns19="http://www.protogeni.net/resources/rspec/ext/emulab/1" cores="1" ram="256" disk="8"/>
+    </sliver_type>
+    <interface client_id="rt-11:if1">
+      <ip address="192.168.9.2" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-11:if2">
+      <ip address="192.168.23.2" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-11:if3">
+      <ip address="192.168.24.1" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-11:if4">
+      <ip address="192.168.25.1" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <services>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_autostart.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_run.tar.gz" install_path="/local"/>
+      <install url="http://emmy9.casa.umass.edu/GEC-20/gimidev.tar.gz" install_path="/"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/labwiki.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/install_script.tar.gz" install_path="/local"/>
+      <execute shell="sh" command="/bin/bash /local/xorp_autostart/start-xorp.sh"/>
+      <execute shell="sh" command="/bin/bash /local/install_script/initial_install.sh"/>
+      <execute shell="sh" command="sudo sh /gimidev/gimibot.sh"/>
+    </services>
+  </node>
+  <node client_id="rt-12" exclusive="false" component_manager_id="urn:publicid:IDN+instageni.stanford.edu+authority+cm">
+    <sliver_type name="emulab-xen">
+      <disk_image name="https://www.instageni.clemson.edu/image_metadata.php?uuid=5417bcef-224e-11e4-aa5a-000000000000"/>
+      <ns20:xen xmlns:ns20="http://www.protogeni.net/resources/rspec/ext/emulab/1" cores="1" ram="256" disk="8"/>
+    </sliver_type>
+    <interface client_id="rt-12:if1">
+      <ip address="192.168.11.2" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-12:if2">
+      <ip address="192.168.24.2" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-12:if3">
+      <ip address="192.168.26.1" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-12:if4">
+      <ip address="192.168.27.1" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <services>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_autostart.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_run.tar.gz" install_path="/local"/>
+      <install url="http://emmy9.casa.umass.edu/GEC-20/gimidev.tar.gz" install_path="/"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/labwiki.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/install_script.tar.gz" install_path="/local"/>
+      <execute shell="sh" command="/bin/bash /local/xorp_autostart/start-xorp.sh"/>
+      <execute shell="sh" command="/bin/bash /local/install_script/initial_install.sh"/>
+      <execute shell="sh" command="sudo sh /gimidev/gimibot.sh"/>
+    </services>
+  </node>
+  <node client_id="rt-18" exclusive="false" component_manager_id="urn:publicid:IDN+instageni.stanford.edu+authority+cm">
+    <sliver_type name="emulab-xen">
+      <disk_image name="https://www.instageni.clemson.edu/image_metadata.php?uuid=5417bcef-224e-11e4-aa5a-000000000000"/>
+      <ns21:xen xmlns:ns21="http://www.protogeni.net/resources/rspec/ext/emulab/1" cores="1" ram="256" disk="8"/>
+    </sliver_type>
+    <interface client_id="rt-18:if1">
+      <ip address="192.168.22.2" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-18:if2">
+      <ip address="192.168.36.2" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-18:if3">
+      <ip address="192.168.37.1" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-18:if4">
+      <ip address="192.168.38.1" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <services>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_autostart.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_run.tar.gz" install_path="/local"/>
+      <install url="http://emmy9.casa.umass.edu/GEC-20/gimidev.tar.gz" install_path="/"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/labwiki.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/install_script.tar.gz" install_path="/local"/>
+      <execute shell="sh" command="/bin/bash /local/xorp_autostart/start-xorp.sh"/>
+      <execute shell="sh" command="/bin/bash /local/install_script/initial_install.sh"/>
+      <execute shell="sh" command="sudo sh /gimidev/gimibot.sh"/>
+    </services>
+  </node>
+  <node client_id="rt-19" exclusive="false" component_manager_id="urn:publicid:IDN+instageni.stanford.edu+authority+cm">
+    <sliver_type name="emulab-xen">
+      <disk_image name="https://www.instageni.clemson.edu/image_metadata.php?uuid=5417bcef-224e-11e4-aa5a-000000000000"/>
+      <ns22:xen xmlns:ns22="http://www.protogeni.net/resources/rspec/ext/emulab/1" cores="1" ram="256" disk="8"/>
+    </sliver_type>
+    <interface client_id="rt-19:if1">
+      <ip address="192.168.25.2" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-19:if2">
+      <ip address="192.168.38.2" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-19:if3">
+      <ip address="192.168.39.1" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-19:if4">
+      <ip address="192.168.40.1" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <services>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_autostart.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_run.tar.gz" install_path="/local"/>
+      <install url="http://emmy9.casa.umass.edu/GEC-20/gimidev.tar.gz" install_path="/"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/labwiki.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/install_script.tar.gz" install_path="/local"/>
+      <execute shell="sh" command="/bin/bash /local/xorp_autostart/start-xorp.sh"/>
+      <execute shell="sh" command="/bin/bash /local/install_script/initial_install.sh"/>
+      <execute shell="sh" command="sudo sh /gimidev/gimibot.sh"/>
+    </services>
+  </node>
+  <node client_id="rt-20" exclusive="false" component_manager_id="urn:publicid:IDN+instageni.stanford.edu+authority+cm">
+    <sliver_type name="emulab-xen">
+      <disk_image name="https://www.instageni.clemson.edu/image_metadata.php?uuid=5417bcef-224e-11e4-aa5a-000000000000"/>
+      <ns23:xen xmlns:ns23="http://www.protogeni.net/resources/rspec/ext/emulab/1" cores="1" ram="256" disk="8"/>
+    </sliver_type>
+    <interface client_id="rt-20:if1">
+      <ip address="192.168.26.2" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-20:if2">
+      <ip address="192.168.39.2" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-20:if3">
+      <ip address="192.168.41.1" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-20:if4">
+      <ip address="192.168.42.1" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <services>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_autostart.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_run.tar.gz" install_path="/local"/>
+      <install url="http://emmy9.casa.umass.edu/GEC-20/gimidev.tar.gz" install_path="/"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/labwiki.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/install_script.tar.gz" install_path="/local"/>
+      <execute shell="sh" command="/bin/bash /local/xorp_autostart/start-xorp.sh"/>
+      <execute shell="sh" command="/bin/bash /local/install_script/initial_install.sh"/>
+      <execute shell="sh" command="sudo sh /gimidev/gimibot.sh"/>
+    </services>
+  </node>
+  <node client_id="rt-26" exclusive="false" component_manager_id="urn:publicid:IDN+instageni.clemson.edu+authority+cm">
+    <sliver_type name="emulab-xen">
+      <disk_image name="https://www.instageni.clemson.edu/image_metadata.php?uuid=5417bcef-224e-11e4-aa5a-000000000000"/>
+      <ns24:xen xmlns:ns24="http://www.protogeni.net/resources/rspec/ext/emulab/1" cores="1" ram="256" disk="8"/>
+    </sliver_type>
+    <interface client_id="rt-26:if1">
+      <ip address="192.168.37.2" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-26:if2">
+      <ip address="192.168.51.2" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-26:if3">
+      <ip address="192.168.52.1" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-26:if4">
+      <ip address="192.168.53.1" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <services>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_autostart.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_run.tar.gz" install_path="/local"/>
+      <install url="http://emmy9.casa.umass.edu/GEC-20/gimidev.tar.gz" install_path="/"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/labwiki.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/install_script.tar.gz" install_path="/local"/>
+      <execute shell="sh" command="/bin/bash /local/xorp_autostart/start-xorp.sh"/>
+      <execute shell="sh" command="/bin/bash /local/install_script/initial_install.sh"/>
+      <execute shell="sh" command="sudo sh /gimidev/gimibot.sh"/>
+    </services>
+  </node>
+  <node client_id="rt-27" exclusive="false" component_manager_id="urn:publicid:IDN+instageni.clemson.edu+authority+cm">
+    <sliver_type name="emulab-xen">
+      <disk_image name="https://www.instageni.clemson.edu/image_metadata.php?uuid=5417bcef-224e-11e4-aa5a-000000000000"/>
+      <ns25:xen xmlns:ns25="http://www.protogeni.net/resources/rspec/ext/emulab/1" cores="1" ram="256" disk="8"/>
+    </sliver_type>
+    <interface client_id="rt-27:if1">
+      <ip address="192.168.40.2" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-27:if2">
+      <ip address="192.168.53.2" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-27:if3">
+      <ip address="192.168.54.1" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-27:if4">
+      <ip address="192.168.55.1" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <services>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_autostart.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_run.tar.gz" install_path="/local"/>
+      <install url="http://emmy9.casa.umass.edu/GEC-20/gimidev.tar.gz" install_path="/"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/labwiki.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/install_script.tar.gz" install_path="/local"/>
+      <execute shell="sh" command="/bin/bash /local/xorp_autostart/start-xorp.sh"/>
+      <execute shell="sh" command="/bin/bash /local/install_script/initial_install.sh"/>
+      <execute shell="sh" command="sudo sh /gimidev/gimibot.sh"/>
+    </services>
+  </node>
+  <node client_id="rt-28" exclusive="false" component_manager_id="urn:publicid:IDN+instageni.clemson.edu+authority+cm">
+    <sliver_type name="emulab-xen">
+      <disk_image name="https://www.instageni.clemson.edu/image_metadata.php?uuid=5417bcef-224e-11e4-aa5a-000000000000"/>
+      <ns26:xen xmlns:ns26="http://www.protogeni.net/resources/rspec/ext/emulab/1" cores="1" ram="256" disk="8"/>
+    </sliver_type>
+    <interface client_id="rt-28:if1">
+      <ip address="192.168.41.2" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-28:if2">
+      <ip address="192.168.55.2" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-28:if3">
+      <ip address="192.168.56.1" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-28:if4">
+      <ip address="192.168.57.1" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <services>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_autostart.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_run.tar.gz" install_path="/local"/>
+      <install url="http://emmy9.casa.umass.edu/GEC-20/gimidev.tar.gz" install_path="/"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/labwiki.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/install_script.tar.gz" install_path="/local"/>
+      <execute shell="sh" command="/bin/bash /local/xorp_autostart/start-xorp.sh"/>
+      <execute shell="sh" command="/bin/bash /local/install_script/initial_install.sh"/>
+      <execute shell="sh" command="sudo sh /gimidev/gimibot.sh"/>
+    </services>
+  </node>
+  <node client_id="rt-33" exclusive="false" component_manager_id="urn:publicid:IDN+instageni.clemson.edu+authority+cm">
+    <sliver_type name="emulab-xen">
+      <disk_image name="https://www.instageni.clemson.edu/image_metadata.php?uuid=5417bcef-224e-11e4-aa5a-000000000000"/>
+      <ns27:xen xmlns:ns27="http://www.protogeni.net/resources/rspec/ext/emulab/1" cores="1" ram="256" disk="8"/>
+    </sliver_type>
+    <interface client_id="rt-33:if1">
+      <ip address="192.168.52.2" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-33:if2">
+      <ip address="192.168.63.2" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-33:if3">
+      <ip address="192.168.64.1" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <services>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_autostart.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_run.tar.gz" install_path="/local"/>
+      <install url="http://emmy9.casa.umass.edu/GEC-20/gimidev.tar.gz" install_path="/"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/labwiki.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/install_script.tar.gz" install_path="/local"/>
+      <execute shell="sh" command="/bin/bash /local/xorp_autostart/start-xorp.sh"/>
+      <execute shell="sh" command="/bin/bash /local/install_script/initial_install.sh"/>
+      <execute shell="sh" command="sudo sh /gimidev/gimibot.sh"/>
+    </services>
+  </node>
+  <node client_id="rt-34" exclusive="false" component_manager_id="urn:publicid:IDN+instageni.clemson.edu+authority+cm">
+    <sliver_type name="emulab-xen">
+      <disk_image name="https://www.instageni.clemson.edu/image_metadata.php?uuid=5417bcef-224e-11e4-aa5a-000000000000"/>
+      <ns28:xen xmlns:ns28="http://www.protogeni.net/resources/rspec/ext/emulab/1" cores="1" ram="256" disk="8"/>
+    </sliver_type>
+    <interface client_id="rt-34:if1">
+      <ip address="192.168.54.2" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-34:if2">
+      <ip address="192.168.64.2" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-34:if3">
+      <ip address="192.168.65.1" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <services>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_autostart.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_run.tar.gz" install_path="/local"/>
+      <install url="http://emmy9.casa.umass.edu/GEC-20/gimidev.tar.gz" install_path="/"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/labwiki.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/install_script.tar.gz" install_path="/local"/>
+      <execute shell="sh" command="/bin/bash /local/xorp_autostart/start-xorp.sh"/>
+      <execute shell="sh" command="/bin/bash /local/install_script/initial_install.sh"/>
+      <execute shell="sh" command="sudo sh /gimidev/gimibot.sh"/>
+    </services>
+  </node>
+  <node client_id="rt-35" exclusive="false" component_manager_id="urn:publicid:IDN+instageni.clemson.edu+authority+cm">
+    <sliver_type name="emulab-xen">
+      <disk_image name="https://www.instageni.clemson.edu/image_metadata.php?uuid=5417bcef-224e-11e4-aa5a-000000000000"/>
+      <ns29:xen xmlns:ns29="http://www.protogeni.net/resources/rspec/ext/emulab/1" cores="1" ram="256" disk="8"/>
+    </sliver_type>
+    <interface client_id="rt-35:if1">
+      <ip address="192.168.56.2" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-35:if2">
+      <ip address="192.168.65.2" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-35:if3">
+      <ip address="192.168.66.1" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <services>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_autostart.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_run.tar.gz" install_path="/local"/>
+      <install url="http://emmy9.casa.umass.edu/GEC-20/gimidev.tar.gz" install_path="/"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/labwiki.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/install_script.tar.gz" install_path="/local"/>
+      <execute shell="sh" command="/bin/bash /local/xorp_autostart/start-xorp.sh"/>
+      <execute shell="sh" command="/bin/bash /local/install_script/initial_install.sh"/>
+      <execute shell="sh" command="sudo sh /gimidev/gimibot.sh"/>
+    </services>
+  </node>
+  <node client_id="rt-6" exclusive="false" component_manager_id="urn:publicid:IDN+instageni.ku.gpeni.net+authority+cm">
+    <sliver_type name="emulab-xen">
+      <disk_image name="https://www.instageni.clemson.edu/image_metadata.php?uuid=5417bcef-224e-11e4-aa5a-000000000000"/>
+      <ns30:xen xmlns:ns30="http://www.protogeni.net/resources/rspec/ext/emulab/1" cores="1" ram="256" disk="8"/>
+    </sliver_type>
+    <interface client_id="rt-6:if1">
+      <ip address="192.168.12.2" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-6:if2">
+      <ip address="192.168.13.1" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-6:if3">
+      <ip address="192.168.14.1" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <services>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_autostart.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_run.tar.gz" install_path="/local"/>
+      <install url="http://emmy9.casa.umass.edu/GEC-20/gimidev.tar.gz" install_path="/"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/labwiki.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/install_script.tar.gz" install_path="/local"/>
+      <execute shell="sh" command="/bin/bash /local/xorp_autostart/start-xorp.sh"/>
+      <execute shell="sh" command="/bin/bash /local/install_script/initial_install.sh"/>
+      <execute shell="sh" command="sudo sh /gimidev/gimibot.sh"/>
+    </services>
+  </node>
+  <node client_id="host-2" exclusive="false" component_manager_id="urn:publicid:IDN+instageni.ku.gpeni.net+authority+cm">
+    <sliver_type name="emulab-xen">
+      <disk_image name="https://www.instageni.clemson.edu/image_metadata.php?uuid=5417bcef-224e-11e4-aa5a-000000000000"/>
+      <ns31:xen xmlns:ns31="http://www.protogeni.net/resources/rspec/ext/emulab/1" cores="1" ram="256" disk="8"/>
+    </sliver_type>
+    <interface client_id="host-2:if1">
+      <ip address="192.168.13.2" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="host-2:if2">
+      <ip address="192.168.15.1" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <services>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_run.tar.gz" install_path="/local"/>
+      <install url="http://emmy9.casa.umass.edu/GEC-20/gimidev.tar.gz" install_path="/"/>
+      <execute shell="sh" command="sudo sh /gimidev/gimibot.sh"/>
+    </services>
+  </node>
+  <node client_id="rt-13" exclusive="false" component_manager_id="urn:publicid:IDN+instageni.ku.gpeni.net+authority+cm">
+    <sliver_type name="emulab-xen">
+      <disk_image name="https://www.instageni.clemson.edu/image_metadata.php?uuid=5417bcef-224e-11e4-aa5a-000000000000"/>
+      <ns32:xen xmlns:ns32="http://www.protogeni.net/resources/rspec/ext/emulab/1" cores="1" ram="256" disk="8"/>
+    </sliver_type>
+    <interface client_id="rt-13:if1">
+      <ip address="192.168.14.2" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-13:if2">
+      <ip address="192.168.27.2" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-13:if3">
+      <ip address="192.168.28.1" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-13:if4">
+      <ip address="192.168.29.1" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <services>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_autostart.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_run.tar.gz" install_path="/local"/>
+      <install url="http://emmy9.casa.umass.edu/GEC-20/gimidev.tar.gz" install_path="/"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/labwiki.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/install_script.tar.gz" install_path="/local"/>
+      <execute shell="sh" command="/bin/bash /local/xorp_autostart/start-xorp.sh"/>
+      <execute shell="sh" command="/bin/bash /local/install_script/initial_install.sh"/>
+      <execute shell="sh" command="sudo sh /gimidev/gimibot.sh"/>
+    </services>
+  </node>
+  <node client_id="rt-14" exclusive="false" component_manager_id="urn:publicid:IDN+instageni.ku.gpeni.net+authority+cm">
+    <sliver_type name="emulab-xen">
+      <disk_image name="https://www.instageni.clemson.edu/image_metadata.php?uuid=5417bcef-224e-11e4-aa5a-000000000000"/>
+      <ns33:xen xmlns:ns33="http://www.protogeni.net/resources/rspec/ext/emulab/1" cores="1" ram="256" disk="8"/>
+    </sliver_type>
+    <interface client_id="rt-14:if1">
+      <ip address="192.168.15.2" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-14:if2">
+      <ip address="192.168.28.2" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-14:if3">
+      <ip address="192.168.30.1" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <services>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_autostart.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_run.tar.gz" install_path="/local"/>
+      <install url="http://emmy9.casa.umass.edu/GEC-20/gimidev.tar.gz" install_path="/"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/labwiki.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/install_script.tar.gz" install_path="/local"/>
+      <execute shell="sh" command="/bin/bash /local/xorp_autostart/start-xorp.sh"/>
+      <execute shell="sh" command="/bin/bash /local/install_script/initial_install.sh"/>
+      <execute shell="sh" command="sudo sh /gimidev/gimibot.sh"/>
+    </services>
+  </node>
+  <node client_id="rt-21" exclusive="false" component_manager_id="urn:publicid:IDN+instageni.ku.gpeni.net+authority+cm">
+    <sliver_type name="emulab-xen">
+      <disk_image name="https://www.instageni.clemson.edu/image_metadata.php?uuid=5417bcef-224e-11e4-aa5a-000000000000"/>
+      <ns34:xen xmlns:ns34="http://www.protogeni.net/resources/rspec/ext/emulab/1" cores="1" ram="256" disk="8"/>
+    </sliver_type>
+    <interface client_id="rt-21:if1">
+      <ip address="192.168.29.2" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-21:if2">
+      <ip address="192.168.42.2" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-21:if3">
+      <ip address="192.168.43.1" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-21:if4">
+      <ip address="192.168.44.1" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <services>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_autostart.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_run.tar.gz" install_path="/local"/>
+      <install url="http://emmy9.casa.umass.edu/GEC-20/gimidev.tar.gz" install_path="/"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/labwiki.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/install_script.tar.gz" install_path="/local"/>
+      <execute shell="sh" command="/bin/bash /local/xorp_autostart/start-xorp.sh"/>
+      <execute shell="sh" command="/bin/bash /local/install_script/initial_install.sh"/>
+      <execute shell="sh" command="sudo sh /gimidev/gimibot.sh"/>
+    </services>
+  </node>
+  <node client_id="rt-22" exclusive="false" component_manager_id="urn:publicid:IDN+instageni.ku.gpeni.net+authority+cm">
+    <sliver_type name="emulab-xen">
+      <disk_image name="https://www.instageni.clemson.edu/image_metadata.php?uuid=5417bcef-224e-11e4-aa5a-000000000000"/>
+      <ns35:xen xmlns:ns35="http://www.protogeni.net/resources/rspec/ext/emulab/1" cores="1" ram="256" disk="8"/>
+    </sliver_type>
+    <interface client_id="rt-22:if1">
+      <ip address="192.168.30.2" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-22:if2">
+      <ip address="192.168.43.2" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-22:if3">
+      <ip address="192.168.45.1" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <services>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_autostart.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_run.tar.gz" install_path="/local"/>
+      <install url="http://emmy9.casa.umass.edu/GEC-20/gimidev.tar.gz" install_path="/"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/labwiki.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/install_script.tar.gz" install_path="/local"/>
+      <execute shell="sh" command="/bin/bash /local/xorp_autostart/start-xorp.sh"/>
+      <execute shell="sh" command="/bin/bash /local/install_script/initial_install.sh"/>
+      <execute shell="sh" command="sudo sh /gimidev/gimibot.sh"/>
+    </services>
+  </node>
+  <node client_id="rt-29" exclusive="false" component_manager_id="urn:publicid:IDN+instageni.northwestern.edu+authority+cm">
+    <sliver_type name="emulab-xen">
+      <disk_image name="https://www.instageni.clemson.edu/image_metadata.php?uuid=5417bcef-224e-11e4-aa5a-000000000000"/>
+      <ns36:xen xmlns:ns36="http://www.protogeni.net/resources/rspec/ext/emulab/1" cores="1" ram="256" disk="8"/>
+    </sliver_type>
+    <interface client_id="rt-29:if1">
+      <ip address="192.168.44.2" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-29:if2">
+      <ip address="192.168.57.2" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-29:if3">
+      <ip address="192.168.58.1" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-29:if4">
+      <ip address="192.168.59.1" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <services>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_autostart.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_run.tar.gz" install_path="/local"/>
+      <install url="http://emmy9.casa.umass.edu/GEC-20/gimidev.tar.gz" install_path="/"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/labwiki.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/install_script.tar.gz" install_path="/local"/>
+      <execute shell="sh" command="/bin/bash /local/xorp_autostart/start-xorp.sh"/>
+      <execute shell="sh" command="/bin/bash /local/install_script/initial_install.sh"/>
+      <execute shell="sh" command="sudo sh /gimidev/gimibot.sh"/>
+    </services>
+  </node>
+  <node client_id="rt-30" exclusive="false" component_manager_id="urn:publicid:IDN+instageni.northwestern.edu+authority+cm">
+    <sliver_type name="emulab-xen">
+      <disk_image name="https://www.instageni.clemson.edu/image_metadata.php?uuid=5417bcef-224e-11e4-aa5a-000000000000"/>
+      <ns37:xen xmlns:ns37="http://www.protogeni.net/resources/rspec/ext/emulab/1" cores="1" ram="256" disk="8"/>
+    </sliver_type>
+    <interface client_id="rt-30:if1">
+      <ip address="192.168.45.2" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-30:if2">
+      <ip address="192.168.58.2" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-30:if3">
+      <ip address="192.168.60.1" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <services>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_autostart.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_run.tar.gz" install_path="/local"/>
+      <install url="http://emmy9.casa.umass.edu/GEC-20/gimidev.tar.gz" install_path="/"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/labwiki.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/install_script.tar.gz" install_path="/local"/>
+      <execute shell="sh" command="/bin/bash /local/xorp_autostart/start-xorp.sh"/>
+      <execute shell="sh" command="/bin/bash /local/install_script/initial_install.sh"/>
+      <execute shell="sh" command="sudo sh /gimidev/gimibot.sh"/>
+    </services>
+  </node>
+  <node client_id="rt-36" exclusive="false" component_manager_id="urn:publicid:IDN+instageni.northwestern.edu+authority+cm">
+    <sliver_type name="emulab-xen">
+      <disk_image name="https://www.instageni.clemson.edu/image_metadata.php?uuid=5417bcef-224e-11e4-aa5a-000000000000"/>
+      <ns38:xen xmlns:ns38="http://www.protogeni.net/resources/rspec/ext/emulab/1" cores="1" ram="256" disk="8"/>
+    </sliver_type>
+    <interface client_id="rt-36:if1">
+      <ip address="192.168.59.2" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-36:if2">
+      <ip address="192.168.66.2" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="rt-36:if3">
+      <ip address="192.168.67.1" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <services>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_autostart.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_run.tar.gz" install_path="/local"/>
+      <install url="http://emmy9.casa.umass.edu/GEC-20/gimidev.tar.gz" install_path="/"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/labwiki.tar.gz" install_path="/local"/>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/install_script.tar.gz" install_path="/local"/>
+      <execute shell="sh" command="/bin/bash /local/xorp_autostart/start-xorp.sh"/>
+      <execute shell="sh" command="/bin/bash /local/install_script/initial_install.sh"/>
+      <execute shell="sh" command="sudo sh /gimidev/gimibot.sh"/>
+    </services>
+  </node>
+  <node client_id="host-4" exclusive="false" component_manager_id="urn:publicid:IDN+instageni.northwestern.edu+authority+cm">
+    <sliver_type name="emulab-xen">
+      <disk_image name="https://www.instageni.clemson.edu/image_metadata.php?uuid=5417bcef-224e-11e4-aa5a-000000000000"/>
+      <ns39:xen xmlns:ns39="http://www.protogeni.net/resources/rspec/ext/emulab/1" cores="1" ram="256" disk="8"/>
+    </sliver_type>
+    <interface client_id="host-4:if1">
+      <ip address="192.168.60.2" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="host-4:if2">
+      <ip address="192.168.67.2" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <services>
+      <install url="http://www.gpolab.bbn.com/exp/sysexpr/xorp_run.tar.gz" install_path="/local"/>
+      <install url="http://emmy9.casa.umass.edu/GEC-20/gimidev.tar.gz" install_path="/"/>
+      <execute shell="sh" command="sudo sh /gimidev/gimibot.sh"/>
+    </services>
+  </node>
+  <link client_id="lan0">
+    <interface_ref client_id="host-1:if1"/>
+    <interface_ref client_id="rt-7:if1"/>
+    <link_type name="lan"/>
+  </link>
+  <link client_id="lan1">
+    <interface_ref client_id="host-1:if2"/>
+    <interface_ref client_id="rt-1:if1"/>
+    <link_type name="lan"/>
+  </link>
+  <link client_id="lan2">
+    <interface_ref client_id="rt-1:if2"/>
+    <interface_ref client_id="rt-8:if1"/>
+    <link_type name="lan"/>
+  </link>
+  <link client_id="lan3">
+    <interface_ref client_id="rt-1:if3"/>
+    <interface_ref client_id="rt-2:if1"/>
+    <link_type name="lan"/>
+  </link>
+  <link client_id="lan4">
+    <interface_ref client_id="rt-2:if2"/>
+    <interface_ref client_id="rt-9:if1"/>
+    <link_type name="lan"/>
+  </link>
+  <link client_id="stitched0">
+    <interface_ref client_id="rt-2:if3"/>
+    <interface_ref client_id="rt-3:if1"/>
+    <property capacity="10000" source_id="rt-2:if3" dest_id="rt-3:if1"/>
+    <property capacity="10000" source_id="rt-3:if1" dest_id="rt-2:if3"/>
+    <component_manager name="urn:publicid:IDN+instageni.gpolab.bbn.com+authority+cm"/>
+    <component_manager name="urn:publicid:IDN+instageni.stanford.edu+authority+cm"/>
+  </link>
+  <link client_id="lan5">
+    <interface_ref client_id="rt-3:if2"/>
+    <interface_ref client_id="rt-10:if1"/>
+    <link_type name="lan"/>
+  </link>
+  <link client_id="lan6">
+    <interface_ref client_id="rt-3:if3"/>
+    <interface_ref client_id="rt-4:if1"/>
+    <link_type name="lan"/>
+  </link>
+  <link client_id="lan7">
+    <interface_ref client_id="rt-4:if2"/>
+    <interface_ref client_id="rt-11:if1"/>
+    <link_type name="lan"/>
+  </link>
+  <link client_id="lan8">
+    <interface_ref client_id="rt-4:if3"/>
+    <interface_ref client_id="rt-5:if1"/>
+    <link_type name="lan"/>
+  </link>
+  <link client_id="lan9">
+    <interface_ref client_id="rt-5:if2"/>
+    <interface_ref client_id="rt-12:if1"/>
+    <link_type name="lan"/>
+  </link>
+  <link client_id="egre0">
+    <interface_ref client_id="rt-5:if3"/>
+    <interface_ref client_id="rt-6:if1"/>
+    <link_type name="egre-tunnel"/>
+  </link>
+  <link client_id="lan10">
+    <interface_ref client_id="rt-6:if2"/>
+    <interface_ref client_id="host-2:if1"/>
+    <link_type name="lan"/>
+  </link>
+  <link client_id="lan11">
+    <interface_ref client_id="rt-6:if3"/>
+    <interface_ref client_id="rt-13:if1"/>
+    <link_type name="lan"/>
+  </link>
+  <link client_id="lan12">
+    <interface_ref client_id="host-2:if2"/>
+    <interface_ref client_id="rt-14:if1"/>
+    <link_type name="lan"/>
+  </link>
+  <link client_id="stitched1">
+    <interface_ref client_id="rt-7:if2"/>
+    <interface_ref client_id="rt-15:if1"/>
+    <property capacity="10000" source_id="rt-7:if2" dest_id="rt-15:if1"/>
+    <property capacity="10000" source_id="rt-15:if1" dest_id="rt-7:if2"/>
+    <component_manager name="urn:publicid:IDN+instageni.gpolab.bbn.com+authority+cm"/>
+    <component_manager name="urn:publicid:IDN+instageni.illinois.edu+authority+cm"/>
+  </link>
+  <link client_id="lan13">
+    <interface_ref client_id="rt-7:if3"/>
+    <interface_ref client_id="rt-8:if2"/>
+    <link_type name="lan"/>
+  </link>
+  <link client_id="lan14">
+    <interface_ref client_id="rt-8:if3"/>
+    <interface_ref client_id="rt-9:if2"/>
+    <link_type name="lan"/>
+  </link>
+  <link client_id="stitched2">
+    <interface_ref client_id="rt-8:if4"/>
+    <interface_ref client_id="rt-16:if1"/>
+    <property capacity="10000" source_id="rt-8:if4" dest_id="rt-16:if1"/>
+    <property capacity="10000" source_id="rt-16:if1" dest_id="rt-8:if4"/>
+    <component_manager name="urn:publicid:IDN+instageni.gpolab.bbn.com+authority+cm"/>
+    <component_manager name="urn:publicid:IDN+instageni.illinois.edu+authority+cm"/>
+  </link>
+  <link client_id="stitched3">
+    <interface_ref client_id="rt-9:if3"/>
+    <interface_ref client_id="rt-17:if1"/>
+    <property capacity="10000" source_id="rt-9:if3" dest_id="rt-17:if1"/>
+    <property capacity="10000" source_id="rt-17:if1" dest_id="rt-9:if3"/>
+    <component_manager name="urn:publicid:IDN+instageni.gpolab.bbn.com+authority+cm"/>
+    <component_manager name="urn:publicid:IDN+instageni.illinois.edu+authority+cm"/>
+  </link>
+  <link client_id="stitched4">
+    <interface_ref client_id="rt-9:if4"/>
+    <interface_ref client_id="rt-10:if2"/>
+    <property capacity="10000" source_id="rt-9:if4" dest_id="rt-10:if2"/>
+    <property capacity="10000" source_id="rt-10:if2" dest_id="rt-9:if4"/>
+    <component_manager name="urn:publicid:IDN+instageni.gpolab.bbn.com+authority+cm"/>
+    <component_manager name="urn:publicid:IDN+instageni.stanford.edu+authority+cm"/>
+  </link>
+  <link client_id="lan15">
+    <interface_ref client_id="rt-10:if3"/>
+    <interface_ref client_id="rt-18:if1"/>
+    <link_type name="lan"/>
+  </link>
+  <link client_id="lan16">
+    <interface_ref client_id="rt-10:if4"/>
+    <interface_ref client_id="rt-11:if2"/>
+    <link_type name="lan"/>
+  </link>
+  <link client_id="lan17">
+    <interface_ref client_id="rt-11:if3"/>
+    <interface_ref client_id="rt-12:if2"/>
+    <link_type name="lan"/>
+  </link>
+  <link client_id="lan18">
+    <interface_ref client_id="rt-11:if4"/>
+    <interface_ref client_id="rt-19:if1"/>
+    <link_type name="lan"/>
+  </link>
+  <link client_id="lan19">
+    <interface_ref client_id="rt-12:if3"/>
+    <interface_ref client_id="rt-20:if1"/>
+    <link_type name="lan"/>
+  </link>
+  <link client_id="egre1">
+    <interface_ref client_id="rt-12:if4"/>
+    <interface_ref client_id="rt-13:if2"/>
+    <link_type name="egre-tunnel"/>
+  </link>
+  <link client_id="lan20">
+    <interface_ref client_id="rt-13:if3"/>
+    <interface_ref client_id="rt-14:if2"/>
+    <link_type name="lan"/>
+  </link>
+  <link client_id="lan21">
+    <interface_ref client_id="rt-13:if4"/>
+    <interface_ref client_id="rt-21:if1"/>
+    <link_type name="lan"/>
+  </link>
+  <link client_id="lan22">
+    <interface_ref client_id="rt-14:if3"/>
+    <interface_ref client_id="rt-22:if1"/>
+    <link_type name="lan"/>
+  </link>
+  <link client_id="lan23">
+    <interface_ref client_id="rt-15:if2"/>
+    <interface_ref client_id="rt-23:if1"/>
+    <link_type name="lan"/>
+  </link>
+  <link client_id="lan24">
+    <interface_ref client_id="rt-15:if3"/>
+    <interface_ref client_id="rt-16:if2"/>
+    <link_type name="lan"/>
+  </link>
+  <link client_id="lan25">
+    <interface_ref client_id="rt-16:if3"/>
+    <interface_ref client_id="rt-17:if2"/>
+    <link_type name="lan"/>
+  </link>
+  <link client_id="lan26">
+    <interface_ref client_id="rt-16:if4"/>
+    <interface_ref client_id="rt-24:if1"/>
+    <link_type name="lan"/>
+  </link>
+  <link client_id="lan27">
+    <interface_ref client_id="rt-17:if3"/>
+    <interface_ref client_id="rt-25:if1"/>
+    <link_type name="lan"/>
+  </link>
+  <link client_id="stitched5">
+    <interface_ref client_id="rt-17:if4"/>
+    <interface_ref client_id="rt-18:if2"/>
+    <property capacity="10000" source_id="rt-17:if4" dest_id="rt-18:if2"/>
+    <property capacity="10000" source_id="rt-18:if2" dest_id="rt-17:if4"/>
+    <component_manager name="urn:publicid:IDN+instageni.illinois.edu+authority+cm"/>
+    <component_manager name="urn:publicid:IDN+instageni.stanford.edu+authority+cm"/>
+  </link>
+  <link client_id="egre2">
+    <interface_ref client_id="rt-18:if3"/>
+    <interface_ref client_id="rt-26:if1"/>
+    <link_type name="egre-tunnel"/>
+  </link>
+  <link client_id="lan28">
+    <interface_ref client_id="rt-18:if4"/>
+    <interface_ref client_id="rt-19:if2"/>
+    <link_type name="lan"/>
+  </link>
+  <link client_id="lan29">
+    <interface_ref client_id="rt-19:if3"/>
+    <interface_ref client_id="rt-20:if2"/>
+    <link_type name="lan"/>
+  </link>
+  <link client_id="egre3">
+    <interface_ref client_id="rt-19:if4"/>
+    <interface_ref client_id="rt-27:if1"/>
+    <link_type name="egre-tunnel"/>
+  </link>
+  <link client_id="egre4">
+    <interface_ref client_id="rt-20:if3"/>
+    <interface_ref client_id="rt-28:if1"/>
+    <link_type name="egre-tunnel"/>
+  </link>
+  <link client_id="egre5">
+    <interface_ref client_id="rt-20:if4"/>
+    <interface_ref client_id="rt-21:if2"/>
+    <link_type name="egre-tunnel"/>
+  </link>
+  <link client_id="lan30">
+    <interface_ref client_id="rt-21:if3"/>
+    <interface_ref client_id="rt-22:if2"/>
+    <link_type name="lan"/>
+  </link>
+  <link client_id="egre6">
+    <interface_ref client_id="rt-21:if4"/>
+    <interface_ref client_id="rt-29:if1"/>
+    <link_type name="egre-tunnel"/>
+  </link>
+  <link client_id="egre7">
+    <interface_ref client_id="rt-22:if3"/>
+    <interface_ref client_id="rt-30:if1"/>
+    <link_type name="egre-tunnel"/>
+  </link>
+  <link client_id="lan31">
+    <interface_ref client_id="rt-23:if2"/>
+    <interface_ref client_id="rt-24:if2"/>
+    <link_type name="lan"/>
+  </link>
+  <link client_id="lan32">
+    <interface_ref client_id="rt-23:if3"/>
+    <interface_ref client_id="host-3:if1"/>
+    <link_type name="lan"/>
+  </link>
+  <link client_id="lan33">
+    <interface_ref client_id="rt-24:if3"/>
+    <interface_ref client_id="rt-31:if1"/>
+    <link_type name="lan"/>
+  </link>
+  <link client_id="lan34">
+    <interface_ref client_id="rt-24:if4"/>
+    <interface_ref client_id="rt-25:if2"/>
+    <link_type name="lan"/>
+  </link>
+  <link client_id="lan35">
+    <interface_ref client_id="rt-25:if3"/>
+    <interface_ref client_id="rt-32:if1"/>
+    <link_type name="lan"/>
+  </link>
+  <link client_id="egre8">
+    <interface_ref client_id="rt-25:if4"/>
+    <interface_ref client_id="rt-26:if2"/>
+    <link_type name="egre-tunnel"/>
+  </link>
+  <link client_id="lan36">
+    <interface_ref client_id="rt-26:if3"/>
+    <interface_ref client_id="rt-33:if1"/>
+    <link_type name="lan"/>
+  </link>
+  <link client_id="lan37">
+    <interface_ref client_id="rt-26:if4"/>
+    <interface_ref client_id="rt-27:if2"/>
+    <link_type name="lan"/>
+  </link>
+  <link client_id="lan38">
+    <interface_ref client_id="rt-27:if3"/>
+    <interface_ref client_id="rt-34:if1"/>
+    <link_type name="lan"/>
+  </link>
+  <link client_id="lan39">
+    <interface_ref client_id="rt-27:if4"/>
+    <interface_ref client_id="rt-28:if2"/>
+    <link_type name="lan"/>
+  </link>
+  <link client_id="lan40">
+    <interface_ref client_id="rt-28:if3"/>
+    <interface_ref client_id="rt-35:if1"/>
+    <link_type name="lan"/>
+  </link>
+  <link client_id="egre9">
+    <interface_ref client_id="rt-28:if4"/>
+    <interface_ref client_id="rt-29:if2"/>
+    <link_type name="egre-tunnel"/>
+  </link>
+  <link client_id="lan41">
+    <interface_ref client_id="rt-29:if3"/>
+    <interface_ref client_id="rt-30:if2"/>
+    <link_type name="lan"/>
+  </link>
+  <link client_id="lan42">
+    <interface_ref client_id="rt-29:if4"/>
+    <interface_ref client_id="rt-36:if1"/>
+    <link_type name="lan"/>
+  </link>
+  <link client_id="lan43">
+    <interface_ref client_id="rt-30:if3"/>
+    <interface_ref client_id="host-4:if1"/>
+    <link_type name="lan"/>
+  </link>
+  <link client_id="lan44">
+    <interface_ref client_id="host-3:if2"/>
+    <interface_ref client_id="rt-31:if2"/>
+    <link_type name="lan"/>
+  </link>
+  <link client_id="lan45">
+    <interface_ref client_id="rt-31:if3"/>
+    <interface_ref client_id="rt-32:if2"/>
+    <link_type name="lan"/>
+  </link>
+  <link client_id="egre10">
+    <interface_ref client_id="rt-32:if3"/>
+    <interface_ref client_id="rt-33:if2"/>
+    <link_type name="egre-tunnel"/>
+  </link>
+  <link client_id="lan46">
+    <interface_ref client_id="rt-33:if3"/>
+    <interface_ref client_id="rt-34:if2"/>
+    <link_type name="lan"/>
+  </link>
+  <link client_id="lan47">
+    <interface_ref client_id="rt-34:if3"/>
+    <interface_ref client_id="rt-35:if2"/>
+    <link_type name="lan"/>
+  </link>
+  <link client_id="egre11">
+    <interface_ref client_id="rt-35:if3"/>
+    <interface_ref client_id="rt-36:if2"/>
+    <link_type name="egre-tunnel"/>
+  </link>
+  <link client_id="lan48">
+    <interface_ref client_id="rt-36:if3"/>
+    <interface_ref client_id="host-4:if2"/>
+    <link_type name="lan"/>
+  </link>
+</rspec>
