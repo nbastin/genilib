@@ -454,7 +454,7 @@ def loadContext (path = None, key_passphrase = None):
   from cryptography import x509
   from cryptography.hazmat.backends import default_backend
   cert = x509.load_pem_x509_certificate(open(context._cf.cert, "rb").read(), default_backend())
-  if cert.not_valid_after_utc < datetime.datetime.now():
+  if cert.not_valid_after_utc < datetime.datetime.now(datetime.timezone.utc):
     print("***WARNING*** Client SSL certificate supplied in this context is expired")
 
   context.rawdata = obj
