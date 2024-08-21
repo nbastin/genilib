@@ -14,6 +14,7 @@ requires = ["cryptography",
             "ipaddress",
             "lxml",
             "requests",
+            "six",
             "wrapt"]
 
 # If you are on linux, and don't have ca-certs, we can do an awful thing and it will still work
@@ -26,7 +27,7 @@ pkgs = find_packages()
 pkgs.append('')
 
 setup(name = 'geni-lib',
-      version = '0.9.9.4',
+      version = '0.9.9.5',
       author = 'Nick Bastin',
       author_email = 'nbastin@protonmail.com',
       description = 'Library and tools for working with research testbed resources that support ' \
@@ -44,8 +45,7 @@ setup(name = 'geni-lib',
       classifiers = [
         "Development Status :: 5 - Production/Stable",
         "Environment :: Console",
-        "Programming Language :: Python :: 2.7",
-        "Programming Language :: Python :: 3.6",
+        "Programming Language :: Python :: 3.7",
         "License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)",
         ]
       )

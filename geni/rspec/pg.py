@@ -1,4 +1,4 @@
-# Copyright (c) 2013-2023  Barnstormer Softworks, Ltd.
+# Copyright (c) 2013-2017  Barnstormer Softworks, Ltd.
 
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -89,7 +89,7 @@ class Request(geni.rspec.RSpec):
     else:
       f = open(path, "w+")
 
-    buf = self.toXMLString(True, ucode = True)
+    buf = self.toXMLString(True)
     f.write(buf)
 
     if path is not None:

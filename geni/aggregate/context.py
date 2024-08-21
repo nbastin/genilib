@@ -231,7 +231,7 @@ class Context(object):
       if not os.path.exists(ucpath):
         cred = self.cf.getUserCredentials(self.userurn)
 
-        f = open(ucpath, "w+")
+        f = open(ucpath, "wb+")
         f.write(cred)
         f.close()
 
@@ -240,7 +240,7 @@ class Context(object):
 
     if self._usercred_info[1] < datetime.datetime.now():
       cred = self.cf.getUserCredentials(self.userurn)
-      f = open(ucpath, "w+")
+      f = open(ucpath, "wb+")
       f.write(cred)
       f.close()
       (expires, urn, typ, version) = self._getCredInfo(ucpath)

@@ -6,7 +6,7 @@
 
 """Library for dealing with scripts that are run in the context of a portal."""
 
-from __future__ import absolute_import
+from __future__ import absolute_import, print_function
 
 import sys
 import os
@@ -381,9 +381,9 @@ class Context (object):
         val = raw_input("%s (%s) [%s]: " % (param.description, param.type, str(param.defaultValue)))
         if val == "?":
           if param.longDescription:
-            print param.longDescription
+            print(param.longDescription)
           else:
-            print "No help available for this parameter"
+            print("No help available for this parameter")
         elif not val:
           val = param.defaultValue
           break
@@ -437,11 +437,11 @@ class Context (object):
         else:
           val = ParameterType.argparsemap[opts['type']](val)
       except:
-        print "ERROR: Could not coerce '%s' to '%s'" % (val, opts['type'])
+        print("ERROR: Could not coerce '%s' to '%s'" % (val, opts['type']))
         continue
       if opts['legalValues'] and \
         val not in Context._legalList(opts['legalValues']):
-        print "ERROR: Illegal value '%s'" % (val,),[name]
+        print("ERROR: Illegal value '%s'" % (val))
       else:
         setattr(namespace, name, val)
         self._parameters[name]['value'] = val

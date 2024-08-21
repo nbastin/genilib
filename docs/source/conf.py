@@ -20,7 +20,7 @@ import os
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #sys.path.insert(0, os.path.abspath('.'))
 sys.path.insert(0, os.path.abspath('../..'))
-print sys.path
+print(sys.path)
 
 # -- General configuration ------------------------------------------------
 
@@ -56,7 +56,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'geni-lib'
-copyright = u'2014-2018, Barnstormer Softworks, Ltd.'
+copyright = u'2014-2021, Barnstormer Softworks, Ltd.'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the

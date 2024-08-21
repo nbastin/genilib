@@ -23,7 +23,7 @@ import six
 from .aggregate.apis import ListResourcesError, DeleteSliverError
 
 def _getdefault (obj, attr, default):
-  if hasattr(obj, attr):
+  if attr in obj:
     return obj[attr]
   return default
 
@@ -401,6 +401,38 @@ def loadContext (path = None, key_passphrase = None):
     cf = FrameworkRegistry.get(fobj["type"])()
     cf.cert = fobj["cert-path"]
     if key_passphrase:
+      if six.PY3:
+        key_passphrase = bytes(key_passphrase, "utf-8")
+      cf.setKey(fobj["key-path"], key_passphrase)
+    else:
+      cf.key = fobj["key-path"]
+    context.cf = cf
+    context.project = fobj["project"]
+    context.path = path
+
+    ulist = obj["users"]
+    for uobj in ulist:
+      user = User()
+      user.name = uobj["username"]
+      user.urn = _getdefault(uobj, "urn", None)
+      klist = uobj["keys"]
+      for keypath in klist:
+        user.addKey(keypath)
+      context.addUser(user)
+
+  elif version == 3:
+    context = Context()
+
+    fobj = obj["framework-info"]
+    if fobj["type"] == "custom":
+      import importlib
+      customCH = importlib.import_module(fobj["module"])
+      customFrameworkClass = getattr(customCH.framework, fobj["class"])
+      cf = customFrameworkClass(fobj["class"])
+    cf.cert = fobj["cert-path"]
+    if key_passphrase:
+      if six.PY3:
+        key_passphrase = bytes(key_passphrase, "utf-8")
       cf.setKey(fobj["key-path"], key_passphrase)
     else:
       cf.key = fobj["key-path"]
@@ -423,6 +455,8 @@ def loadContext (path = None, key_passphrase = None):
   cert = x509.load_pem_x509_certificate(open(context._cf.cert, "rb").read(), default_backend())
   if cert.not_valid_after < datetime.datetime.now():
     print("***WARNING*** Client SSL certificate supplied in this context is expired")
+
+  context.rawdata = obj
   return context
 
 
@@ -480,8 +514,7 @@ def buildContextFromBundle (bundle_path, pubkey_path = None, cert_pkey_path = No
   project = None
 
   oc = zf.open("omni_config")
-  for lb in oc.readlines():
-    l = lb.decode("utf-8")
+  for l in oc.readlines():
     if l.startswith("urn"):
       urn = l.split("=")[1].strip()
     elif l.startswith("default_project"):
