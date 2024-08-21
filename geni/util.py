@@ -1,4 +1,5 @@
 # Copyright (c) 2014-2018  Barnstormer Softworks, Ltd.
+# Copyright (c) 2024  Kent State University CAE-Netlab
 
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -453,7 +454,7 @@ def loadContext (path = None, key_passphrase = None):
   from cryptography import x509
   from cryptography.hazmat.backends import default_backend
   cert = x509.load_pem_x509_certificate(open(context._cf.cert, "rb").read(), default_backend())
-  if cert.not_valid_after < datetime.datetime.now():
+  if cert.not_valid_after_utc < datetime.datetime.now():
     print("***WARNING*** Client SSL certificate supplied in this context is expired")
 
   context.rawdata = obj
