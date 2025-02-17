@@ -12,7 +12,7 @@ authors = [
 ]
 description = 'Library and tools for working with research testbed resources that support the GENI AM API, including the NSF GENI Testbed (www.geni.net) and Cloudlab (cloudlab.us).'
 dependencies=["setuptools", "cryptography", "ipaddress","lxml", "requests","six", "wrapt"]
-requires-python=">=3.11"
+requires-python=">=3.7"
 readme = "README.rst"
 classifiers = [
         "Development Status :: 5 - Production/Stable",
