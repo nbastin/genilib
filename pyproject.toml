@@ -1,0 +1,41 @@
+# Copyright (c) 2014-2024  Barnstormer Softworks, Ltd.
+
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+[project]
+name = "geni-lib"
+version = "0.9.9.5"
+
+description = 'Library and tools for working with research testbed resources that support the GENI AM API, including the NSF GENI Testbed (www.geni.net) and Cloudlab (cloudlab.us).'
+dependencies=["setuptools", "cryptography", "ipaddress","lxml", "requests","six", "wrapt"]
+requires-python=">=3.11"
+
+readme = "README.rst"
+classifiers = [
+        "Development Status :: 5 - Production/Stable",
+        "Environment :: Console",
+        "Programming Language :: Python :: 3.7",
+        "License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)",
+]
+
+[metadata]
+author = 'Nick Bastin'
+author_email = 'nbastin@protonmail.com'
+
+
+[project.urls]
+Homepage = 'http://docs.uh-netlab.org/software/geni-lib'
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+
+[project.scripts]
+context-from-bundle = "tools.buildcontext.context_from_bundle:main"
+build-context = "tools.buildcontext.build_context:main"
+genish = "tools.shell.genish:main"

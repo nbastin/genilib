@@ -18,7 +18,6 @@ def parse_args ():
   parser.add_argument("--cert-private-key", dest="cert_pkey_path", help="Path to certificate private key file", default=None)
   return parser.parse_args()
 
-
-if __name__ == '__main__':
+def main():
   opts = parse_args()
   geni.util.buildContextFromBundle(opts.bundle_path, opts.pubkey_path, opts.cert_pkey_path)
