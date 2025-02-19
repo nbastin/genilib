@@ -79,7 +79,7 @@ class Shell(object):
 
     code.interact(banner="GENI-Lib Interactive Shell", local=imports)
 
-if __name__ == '__main__':
+def main():
   import sys
   sys.path.insert(0, os.path.realpath(os.path.curdir))
 

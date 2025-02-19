@@ -42,13 +42,12 @@ def main ():
   opts = parse_args()
 
   if not os.path.exists(opts.cert_path):
-    print "Supplied certificate path %s does not exist" % (opts.cert_path)
+    print("Supplied certificate path %s does not exist" % (opts.cert_path))
   if opts.key_path:
     if not os.path.exists(opts.key_path):
-      print "Supplied private key path %s does not exist" % (opts.key_path)
+      print("Supplied private key path %s does not exist" % (opts.key_path))
   if not os.path.exists(opts.pubkey_path):
-    print "Supplied SSH public key path %s does not exist" % (opts.pubkey_path)
-
+    print("Supplied SSH public key path %s does not exist" % (opts.pubkey_path))
 
   if opts.type in ["cloudlab", "emulab"]:
     framework = "emulab-ch2"
@@ -64,17 +63,11 @@ def main ():
   if opts.key_path:
     key_path = opts.key_path
 
-  print "Building context:"
-  print "-----------------"
-  print "Framework: %s" % (framework)
-  print "User URN: %s" % (user_urn)
-  print "Username: %s" % (username)
+  print("Building context:")
+  print("-----------------")
+  print("Framework: %s" % (framework))
+  print("User URN: %s" % (user_urn))
+  print("Username: %s" % (username))
 
   geni.util._buildContext(framework, opts.cert_path, key_path, username, user_urn, opts.pubkey_path,
                           opts.project, opts.out_path)
-
-
-if __name__ == '__main__':
-  main()
-
-
