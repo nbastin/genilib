@@ -22,7 +22,7 @@ pkgs = find_packages()
 pkgs.append('')
 
 setup(name = 'geni-lib',
-      version = '1.0.0',
+      version = '1.1.0',
       author = 'Nick Bastin',
       author_email = 'nbastin@protonmail.com',
       description = 'Library and tools for working with research testbed resources that support ' \
@@ -39,7 +39,7 @@ setup(name = 'geni-lib',
       classifiers = [
         "Development Status :: 5 - Production/Stable",
         "Environment :: Console",
-        "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.9",
         "License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)",
         ]
       )
