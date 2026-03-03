@@ -1,19 +1,18 @@
 # Copyright (c) 2015-2020  Barnstormer Softworks, Ltd.
+# Copyright (c) 2026  Kent State University CAE-Netlab
 
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
-from __future__ import absolute_import
-
+import importlib.metadata
 import os
 import os.path
 import ssl
 
-import pkg_resources
 
 WIN32_ATTR_HIDDEN = 0x02
-VERSION = pkg_resources.require("geni-lib")[0].version
+VERSION = importlib.metadata.version("geni-lib")
 
 def getDefaultDir ():
   HOME = os.path.expanduser("~")
